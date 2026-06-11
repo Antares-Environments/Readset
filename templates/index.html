@@ -2,17 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antares PDF Vault</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="{{ url_for('static', path='matrix.css') }}">
     <script src="{{ url_for('static', path='pdf.js') }}"></script>
 </head>
 <body>
-    <div class="control-panel">
-        <h2>Volatile Memory Document Load</h2>
-        <input type="file" id="pdf-upload" accept=".pdf">
-    </div>
+    
+    <nav class="glass-panel top-dock" id="top-dock">
+        <div class="panel-brand">
+            <h1>VAULT // EPHEMERAL</h1>
+            <p>Zero-Uncertainty Engine | Press <b>[H]</b> for Focus Mode</p>
+        </div>
+        
+        <div class="panel-controls">
+            <span id="page-tracker" class="tracker">Page -- / --</span>
+            
+            <label for="pdf-upload" class="upload-btn">
+                <span>[ Load Document ]</span>
+            </label>
+            <input type="file" id="pdf-upload" accept=".pdf">
+        </div>
+    </nav>
 
-    <div id="viewer-container"></div>
+    <aside class="glass-panel side-dock hidden" id="side-dock">
+        </aside>
+
+    <main id="viewer-container"></main>
     
     <script>
         const workerUrl = "{{ url_for('static', path='pdf.worker.js') }}";
