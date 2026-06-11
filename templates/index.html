@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="{{ url_for('static', path='matrix.css') }}">
-    <script src="{{ url_for('static', path='pdf.js') }}"></script>
+    <link rel="stylesheet" href="static/matrix.css">
+<script src="static/pdf.js"></script>
 </head>
 <body>
     
@@ -36,8 +36,9 @@
     <main id="viewer-container"></main>
     
     <script>
-        const workerUrl = "{{ url_for('static', path='pdf.worker.js') }}";
+        // Standard relative path
+        const workerUrl = "static/pdf.worker.js";
     </script>
-    <script src="{{ url_for('static', path='viewer.js') }}"></script>
+    <script src="static/viewer.js"></script>
 </body>
 </html>
