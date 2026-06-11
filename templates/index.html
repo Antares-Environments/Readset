@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Antares PDF Vault</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='matrix.css') }}">
+    <script src="{{ url_for('static', path='pdf.js') }}"></script>
+</head>
+<body>
+    <div class="control-panel">
+        <h2>Volatile Memory Document Load</h2>
+        <input type="file" id="pdf-upload" accept=".pdf">
+    </div>
+
+    <div id="viewer-container"></div>
+    
+    <script>
+        const workerUrl = "{{ url_for('static', path='pdf.worker.js') }}";
+    </script>
+    <script src="{{ url_for('static', path='viewer.js') }}"></script>
+</body>
+</html>

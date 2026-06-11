@@ -1,0 +1,105 @@
+/* ==========================================================
+   GLOBAL RESET & ENVIRONMENT
+   Constraint: r >= b AND g >= b
+   ========================================================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(25, 20, 10, 1); /* Safe Deep Olive/Brown */
+    color: rgba(255, 255, 255, 1);
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.control-panel {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid rgba(40, 180, 80, 1); /* Vibrant Green */
+}
+
+input, button {
+    background-color: rgba(15, 25, 10, 1);
+    color: rgba(127, 255, 0, 1);
+    border: 1px solid rgba(40, 180, 80, 1);
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+
+/* ==========================================================
+   SELECTION QUARANTINE (Chartreuse)
+   rgba(127, 255, 0, 1) 
+   ========================================================== */
+::selection {
+    background-color: rgba(127, 255, 0, 1) !important;
+    color: rgba(0, 0, 0, 1) !important;
+}
+
+::-moz-selection {
+    background-color: rgba(127, 255, 0, 1) !important;
+    color: rgba(0, 0, 0, 1) !important;
+}
+
+/* The invisible PDF.js text layer mapped to the canvas */
+#viewer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.page-container {
+    position: relative;
+    border: 2px solid rgba(40, 180, 80, 1); /* Vibrant Green Border */
+    background-color: white;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* ==========================================================
+   TEXT LAYER ALIGNMENT & CHARTREUSE SELECTION
+   ========================================================== */
+.textLayer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    line-height: 1.0;
+    /* Opacity set to 1 so the highlight is fully visible. 
+       The text itself remains transparent below. */
+    opacity: 1; 
+}
+
+.textLayer > span {
+    color: transparent;
+    position: absolute;
+    white-space: pre;
+    cursor: text;
+    transform-origin: 0% 0%;
+}
+
+.textLayer ::selection, 
+.textLayer > span::selection {
+    background-color: rgba(128, 255, 0, 0.942) !important;
+    color: #fff !important;
+}
+
+::-moz-selection {
+    background-color: rgba(127, 255, 0, 0.8) !important;
+    color: #fff !important;
+}
+
+/* PDF Area / Image Drag-Box */
+.pdfViewer .highlight {
+    background-color: rgba(127, 255, 0, 0.4) !important;
+    border: 1px solid rgba(127, 255, 0, 1) !important;
+}
